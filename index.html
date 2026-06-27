@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harald Linhart · Privatperson · Mörfelden-Walldorf</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.linhart-online.com/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1C1C1C;
+      --ink-light: #4A4A4A;
+      --ink-muted: #8A8A8A;
+      --line: #D8D2C8;
+      --cream: #F7F5F1;
+      --accent: #8B7355;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 4rem 2rem 3rem;
+      max-width: 720px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .header-sub {
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 3rem 0 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      padding-bottom: 2rem;
+    }
+
+    .intro p {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-bottom: 2rem;
+    }
+
+    /* Vertical line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 90px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .timeline-year {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      text-align: right;
+      padding-top: 0.15rem;
+      line-height: 1.4;
+      letter-spacing: 0.03em;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 84px;
+      top: 0.4rem;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--accent);
+    }
+
+    .timeline-dot.major {
+      background: var(--accent);
+      width: 15px;
+      height: 15px;
+      left: 83px;
+    }
+
+    .timeline-content {
+      padding-left: 1rem;
+    }
+
+    .timeline-place {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-org {
+      font-size: 0.88rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.875rem;
+      color: var(--ink-light);
+      line-height: 1.65;
+    }
+
+    /* ── KONTAKT ── */
+    #kontakt {
+      padding-bottom: 4rem;
+    }
+
+    .kontakt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .kontakt-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1.25rem;
+      background: var(--cream);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .kontakt-item:hover {
+      border-color: var(--accent);
+      background: #F2EDE4;
+    }
+
+    .kontakt-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .kontakt-value {
+      font-size: 0.95rem;
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    .kontakt-value.mono {
+      font-family: var(--font-display);
+      font-size: 1rem;
+    }
+
+    .kontakt-adresse {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--cream);
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+
+    .kontakt-adresse address {
+      font-style: normal;
+      font-size: 0.9rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
+
+    .kontakt-adresse strong {
+      font-size: 1rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ── IMPRESSUM / DATENSCHUTZ ── */
+    .legal {
+      border-top: 1px solid var(--line);
+      padding: 3rem 2rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .legal-tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .legal-tab {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      cursor: pointer;
+      padding-bottom: 0.3rem;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      font-family: var(--font-body);
+    }
+
+    .legal-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .legal-panel { display: none; }
+    .legal-panel.active { display: block; }
+
+    .legal-panel h3 {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 1.25rem 0 0.4rem;
+    }
+
+    .legal-panel p, .legal-panel address {
+      font-size: 0.85rem;
+      color: var(--ink-light);
+      line-height: 1.8;
+      font-style: normal;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 2rem;
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .timeline::before { left: 70px; }
+      .timeline-item { grid-template-columns: 70px 1fr; }
+      .timeline-dot { left: 64px; }
+      .timeline-dot.major { left: 63px; }
+      .kontakt-grid { grid-template-columns: 1fr; }
+      .kontakt-adresse { flex-direction: column; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1 class="header-name">Harald Linhart</h1>
+    <p class="header-sub">Private Homepage · Mörfelden-Walldorf</p>
+  </header>
+
+  <main>
+
+    <!-- INTRO -->
+    <div class="section-label">Zur Person</div>
+    <div class="intro">
+      <p>Geboren in Unterfranken, aufgewachsen in Schweinfurt. Nach Wirtschaftsgymnasium und Banklehre ein Leben zwischen Kontinenten — von Unterfranken über Südafrika und Australien bis nach Asien.</p>
+    </div>
+
+    <!-- TIMELINE -->
+    <div class="section-label">Lebenslauf</div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-year">1958 –<br>1980</div>
+        <div class="timeline-dot major"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">Schweinfurt, Unterfranken</div>
+          <div class="timeline-org">Wirtschaftsgymnasium · Hypo-Bank</div>
+          <div class="timeline-desc">Abitur am Wirtschaftsgymnasium Schweinfurt. Ausbildung zum Bankkaufmann bei der Hypo-Bank.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1980er</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">Deutschland</div>
+          <div class="timeline-org">Videoteam GmbH · PAN-Videotheken GmbH Baden-Baden</div>
+          <div class="timeline-desc">Selbständige Tätigkeit im Medienbereich. Gründung und Leitung eigener Gesellschaften im Videohandel und -verleih.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1990er</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">Bad Honnef</div>
+          <div class="timeline-org">CCP GmbH</div>
+          <div class="timeline-desc">Geschäftsführung der CCP GmbH. Internationale Geschäftsentwicklung und Unternehmensberatung.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1985 –<br>1988</div>
+        <div class="timeline-dot major"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">Sydney, Australien</div>
+          <div class="timeline-org">Century International Finance Pty. Ltd.</div>
+          <div class="timeline-desc">Aufbau und Leitung der australischen Niederlassung im Bereich internationale Finanzberatung.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">1990</div>
+        <div class="timeline-dot major"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">Kinshasa · Kapstadt</div>
+          <div class="timeline-org">Broadstar Securities SPRL</div>
+          <div class="timeline-desc">Tätigkeit im afrikanischen Finanzmarkt. Stationen in der Demokratischen Republik Kongo und Südafrika.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2001</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">Bad Camberg</div>
+          <div class="timeline-org">Technovalley GmbH · PAN International GmbH</div>
+          <div class="timeline-desc">Gründung und Geschäftsführung zweier Gesellschaften im Bereich internationale Unternehmensberatung und Technologie.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2012</div>
+        <div class="timeline-dot major"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">Sharm el-Sheikh, Ägypten</div>
+          <div class="timeline-org">UBL Consultancy</div>
+          <div class="timeline-desc">Beratungstätigkeit im Nahen Osten. Internationale Unternehmensstrukturierung und Investitionsbegleitung.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2013</div>
+        <div class="timeline-dot major"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">Dubai, VAE</div>
+          <div class="timeline-org">Carion Ltd.</div>
+          <div class="timeline-desc">Aufbau eines internationalen Beratungsnetzwerks aus Dubai. Schwerpunkt Naher Osten und Asien-Pazifik.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-dot major"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">London-Stansted, UK</div>
+          <div class="timeline-org">PAN21 Limited</div>
+          <div class="timeline-desc">Gründung der PAN21 Limited als internationale Holdinggesellschaft mit Sitz in England.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">ab 2022</div>
+        <div class="timeline-dot major"></div>
+        <div class="timeline-content">
+          <div class="timeline-place">Zug · Miami · Nevis · Belize · London · Singapore · Hong Kong · Manila</div>
+          <div class="timeline-org">Lighthouse-Group International</div>
+          <div class="timeline-desc">Aufbau der Lighthouse-Group International mit Niederlassungen und Partnerbüros auf mehreren Kontinenten. Schwerpunkt internationale Unternehmensstrukturierung und Asset Management.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- KONTAKT -->
+    <div class="section-label" id="kontakt">Kontakt & Anschrift</div>
+    <div class="kontakt-grid">
+
+      <div class="kontakt-adresse">
+        <address>
+          <strong>Harald Linhart</strong><br>
+          Schwarzwaldstr. 25<br>
+          64546 Mörfelden-Walldorf<br>
+          <span style="color:var(--ink-muted);font-size:.82rem">Am Frankfurter Flughafen · Deutschland</span>
+        </address>
+      </div>
+
+      <a href="tel:+4961053238650" class="kontakt-item">
+        <span class="kontakt-label">Telefon</span>
+        <span class="kontakt-value mono">06105 · 32 38 650</span>
+      </a>
+
+      <a href="https://wa.me/4915758234914" target="_blank" rel="noopener" class="kontakt-item">
+        <span class="kontakt-label">WhatsApp</span>
+        <span class="kontakt-value mono">0157 · 58 23 49 14</span>
+      </a>
+
+      <a href="mailto:harald@linhart-online.com" class="kontakt-item" style="grid-column: 1 / -1;">
+        <span class="kontakt-label">E-Mail</span>
+        <span class="kontakt-value">harald@linhart-online.com</span>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- LEGAL -->
+  <div class="legal">
+    <div class="legal-tabs">
+      <button class="legal-tab active" onclick="showTab('impressum')">Impressum</button>
+      <button class="legal-tab" onclick="showTab('datenschutz')">Datenschutz</button>
+    </div>
+
+    <div class="legal-panel active" id="tab-impressum">
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <address>
+        Harald Linhart<br>
+        Schwarzwaldstr. 25<br>
+        64546 Mörfelden-Walldorf<br>
+        Deutschland
+      </address>
+      <h3>Kontakt</h3>
+      <p>
+        Telefon: 06105 · 32 38 650<br>
+        WhatsApp: 0157 · 58 23 49 14<br>
+        E-Mail: <a href="mailto:harald@linhart-online.com" style="color:var(--accent)">harald@linhart-online.com</a>
+      </p>
+      <h3>Hinweis</h3>
+      <p>Dies ist eine private, nicht-kommerzielle Homepage. Es werden keine Dienstleistungen angeboten oder beworben.</p>
+    </div>
+
+    <div class="legal-panel" id="tab-datenschutz">
+      <h3>1. Verantwortlicher</h3>
+      <p>Harald Linhart, Schwarzwaldstr. 25, 64546 Mörfelden-Walldorf, E-Mail: <a href="mailto:harald@linhart-online.com" style="color:var(--accent)">harald@linhart-online.com</a></p>
+      <h3>2. Hosting & Server-Logfiles</h3>
+      <p>Bei jedem Aufruf der Website werden automatisch technische Zugriffsdaten in Server-Logfiles gespeichert (IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, Browser). Diese Daten werden ausschließlich zur Sicherstellung des technischen Betriebs erhoben und nicht mit anderen Datenquellen zusammengeführt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <h3>3. Keine Cookies, kein Tracking</h3>
+      <p>Diese Website verwendet keine Cookies und keine Analyse-Tools. Es werden keine personenbezogenen Daten zu Werbe- oder Analysezwecken erhoben oder weitergegeben.</p>
+      <h3>4. Kontaktaufnahme</h3>
+      <p>Bei Kontaktaufnahme per E-Mail oder Telefon werden die übermittelten Daten ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Eine Weitergabe an Dritte findet nicht statt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <h3>5. Ihre Rechte</h3>
+      <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer personenbezogenen Daten. Wenden Sie sich dazu bitte an <a href="mailto:harald@linhart-online.com" style="color:var(--accent)">harald@linhart-online.com</a>.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Harald Linhart · Mörfelden-Walldorf</span>
+    <span>Alle Angaben ohne Gewähr</span>
+  </footer>
+
+  <script>
+    function showTab(name) {
+      document.querySelectorAll('.legal-tab').forEach(t => t.classList.remove('active'))
+      document.querySelectorAll('.legal-panel').forEach(p => p.classList.remove('active'))
+      document.getElementById('tab-' + name).classList.add('active')
+      event.target.classList.add('active')
+    }
+  </script>
+
+</body>
+</html>
