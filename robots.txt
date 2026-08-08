@@ -33,4 +33,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://linhart-online.com/sitemap.xml
+Sitemap: https://www.linhart-online.com/sitemap.xml
